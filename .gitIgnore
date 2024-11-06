@@ -1,0 +1,8 @@
+venv
+dist
+build
+dataBases
+.idea
+__pycache__
+NEK-PRO.spec
+update.spec
