@@ -24,7 +24,7 @@ class Aplication(
         self.lastSearch = {}
         self.dataBases = {
             'payments': DataBase('resources/Pagamento.db'),
-            'informations': DataBase('resources/Informações.db'),
+            'informations': DataBase('resources/Informacoes.db'),
             'cash': DataBase('resources/Caixa.db'),
             'config': DataBase('resources/config.db')
         }
@@ -383,61 +383,65 @@ class Aplication(
         labelName = self.labels(self.frameInputsClient.tab(' Informações gerais '), 'Nome:', 0.02, 0.03, width=0.08)
         self.nameClientEntry = self.entry(self.frameInputsClient.tab(' Informações gerais '), 0.11, 0.03, 0.2, 0.13, type_entry='entry')
 
+        # peso -------------
+        labelPeso = self.labels(self.frameInputsClient.tab(' Informações gerais '), 'Peso:', 0.02, 0.17, width=0.08)
+        self.pesoClientEntry = self.entry(self.frameInputsClient.tab(' Informações gerais '), 0.11, 0.17, 0.2, 0.13, type_entry='entry')
+
         # student cpf -------------
-        labelStudentCpf = self.labels(self.frameInputsClient.tab(' Informações gerais '), 'CPF/Aluno:', 0.02, 0.17, width=0.15)
-        self.studentCpfEntry = self.entry(self.frameInputsClient.tab(' Informações gerais '), 0.13, 0.17, 0.18, 0.13, type_entry='entry')
+        labelStudentCpf = self.labels(self.frameInputsClient.tab(' Informações gerais '), 'CPF/Aluno:', 0.02, 0.31, width=0.15)
+        self.studentCpfEntry = self.entry(self.frameInputsClient.tab(' Informações gerais '), 0.13, 0.31, 0.18, 0.13, type_entry='entry')
 
         # student rg -------------
-        labelStudentRg = self.labels(self.frameInputsClient.tab(' Informações gerais '), 'RG/Aluno:', 0.02, 0.31, width=0.15)
-        self.studentRgEntry = self.entry(self.frameInputsClient.tab(' Informações gerais '), 0.13, 0.31, 0.18, 0.13, type_entry='entry')
+        labelStudentRg = self.labels(self.frameInputsClient.tab(' Informações gerais '), 'RG/Aluno:', 0.02, 0.45, width=0.15)
+        self.studentRgEntry = self.entry(self.frameInputsClient.tab(' Informações gerais '), 0.13, 0.45, 0.18, 0.13, type_entry='entry')
 
         # birthday -------------
-        labelBirthday = self.labels(self.frameInputsClient.tab(' Informações gerais '), 'D/Nascimento:', 0.02, 0.45, width=0.15)
-        self.birthdayEntry = self.entry(self.frameInputsClient.tab(' Informações gerais '), 0.16, 0.45, 0.15, 0.13, type_entry='date')
+        labelBirthday = self.labels(self.frameInputsClient.tab(' Informações gerais '), 'D/Nascimento:', 0.02, 0.59, width=0.15)
+        self.birthdayEntry = self.entry(self.frameInputsClient.tab(' Informações gerais '), 0.16, 0.59, 0.15, 0.13, type_entry='date')
 
         # responsible -------------
-        labelResponsible = self.labels(self.frameInputsClient.tab(' Informações gerais '), 'Responsável:', 0.02, 0.59, width=0.20)
-        self.responsibleEntry = self.entry(self.frameInputsClient.tab(' Informações gerais '), 0.155, 0.59, 0.155, 0.13, type_entry='entry')
+        labelResponsible = self.labels(self.frameInputsClient.tab(' Informações gerais '), 'Responsável:', 0.02, 0.73, width=0.20)
+        self.responsibleEntry = self.entry(self.frameInputsClient.tab(' Informações gerais '), 0.155, 0.73, 0.155, 0.13, type_entry='entry')
 
-        # responsible rg -------------
-        labelResponsibleRg = self.labels(self.frameInputsClient.tab(' Informações gerais '), 'RG/Responsável:', 0.02, 0.73, width=0.155)
-        self.responsibleRgEntry = self.entry(self.frameInputsClient.tab(' Informações gerais '), 0.187, 0.73, 0.122, 0.13, type_entry='entry')
+        # responsible rg (no lugar de Tel/Aluno) -------------
+        labelResponsibleRg = self.labels(self.frameInputsClient.tab(' Informações gerais '), 'RG/Responsável:', 0.33, 0.03, width=0.155)
+        self.responsibleRgEntry = self.entry(self.frameInputsClient.tab(' Informações gerais '), 0.49, 0.03, 0.14, 0.13, type_entry='entry')
 
-        # student phone -------------
-        labelStudentPhone = self.labels(self.frameInputsClient.tab(' Informações gerais '), 'Tel/Aluno:', 0.33, 0.03, width=0.15)
-        self.studentPhoneEntry = self.entry(self.frameInputsClient.tab(' Informações gerais '), 0.43, 0.03, 0.2, 0.13, type_entry='entry')
+        # student phone (reintroduzido) -------------
+        labelStudentPhone = self.labels(self.frameInputsClient.tab(' Informações gerais '), 'Tel/Aluno:', 0.33, 0.17, width=0.15)
+        self.studentPhoneEntry = self.entry(self.frameInputsClient.tab(' Informações gerais '), 0.49, 0.17, 0.14, 0.13, type_entry='entry')
 
         # responsible phone -------------
-        labelStudentPhone = self.labels(self.frameInputsClient.tab(' Informações gerais '), 'Tel/Responsável:', 0.33, 0.17, width=0.155)
-        self.responsiblePhoneEntry = self.entry(self.frameInputsClient.tab(' Informações gerais '), 0.49, 0.17, 0.14, 0.13, type_entry='entry')
+        labelResponsiblePhone = self.labels(self.frameInputsClient.tab(' Informações gerais '), 'Tel/Responsável:', 0.33, 0.31, width=0.155)
+        self.responsiblePhoneEntry = self.entry(self.frameInputsClient.tab(' Informações gerais '), 0.49, 0.31, 0.14, 0.13, type_entry='entry')
 
-        # adress -----------------
-        labelAdress = self.labels(self.frameInputsClient.tab(' Informações gerais '), 'Endereço:', 0.33, 0.31, width=0.16)
-        self.adressClientEntry = self.entry(self.frameInputsClient.tab(' Informações gerais '), 0.43, 0.31, 0.2, 0.13, type_entry='entry')
+        # address -----------------
+        labelAddress = self.labels(self.frameInputsClient.tab(' Informações gerais '), 'Endereço:', 0.33, 0.45, width=0.16)
+        self.addressClientEntry = self.entry(self.frameInputsClient.tab(' Informações gerais '), 0.43, 0.45, 0.2, 0.13, type_entry='entry')
 
         # zip code -----------------
-        labelZipCode = self.labels(self.frameInputsClient.tab(' Informações gerais '), 'CEP:', 0.33, 0.45, width=0.16)
-        self.zipCodeClientEntry = self.entry(self.frameInputsClient.tab(' Informações gerais '), 0.43, 0.45, 0.125, 0.13, type_entry='entry')
+        labelZipCode = self.labels(self.frameInputsClient.tab(' Informações gerais '), 'CEP:', 0.33, 0.59, width=0.16)
+        self.zipCodeClientEntry = self.entry(self.frameInputsClient.tab(' Informações gerais '), 0.43, 0.59, 0.125, 0.13, type_entry='entry')
 
         # city -----------------
-        labelCity = self.labels(self.frameInputsClient.tab(' Informações gerais '), 'Cidade:', 0.33, 0.59, width=0.16)
-        self.cityClientEntry = self.entry(self.frameInputsClient.tab(' Informações gerais '), 0.43, 0.59, 0.2, 0.13, type_entry='entry')
+        labelCity = self.labels(self.frameInputsClient.tab(' Informações gerais '), 'Cidade:', 0.33, 0.73, width=0.16)
+        self.cityClientEntry = self.entry(self.frameInputsClient.tab(' Informações gerais '), 0.43, 0.73, 0.2, 0.13, type_entry='entry')
 
-        # state -----------------
-        labelState = self.labels(self.frameInputsClient.tab(' Informações gerais '), 'Estado:', 0.33, 0.73, width=0.16)
-        self.stateClientEntry = self.entry(self.frameInputsClient.tab(' Informações gerais '), 0.43, 0.73, 0.2, 0.13, type_entry='entry')
+        # state (no lugar de E-mail) -----------------
+        labelState = self.labels(self.frameInputsClient.tab(' Informações gerais '), 'Estado:', 0.66, 0.03, width=0.16)
+        self.stateClientEntry = self.entry(self.frameInputsClient.tab(' Informações gerais '), 0.74, 0.03, 0.2, 0.13, type_entry='entry')
 
-        # email -----------------
-        labelEmail = self.labels(self.frameInputsClient.tab(' Informações gerais '), 'E-mail:', 0.66, 0.03, width=0.16)
-        self.emailEntry = self.entry(self.frameInputsClient.tab(' Informações gerais '), 0.74, 0.03, 0.2, 0.13, type_entry='entry')
+        # email (reorganizado) -----------------
+        labelEmail = self.labels(self.frameInputsClient.tab(' Informações gerais '), 'E-mail:', 0.66, 0.17, width=0.16)
+        self.emailEntry = self.entry(self.frameInputsClient.tab(' Informações gerais '), 0.74, 0.17, 0.2, 0.13, type_entry='entry')
 
         # school -----------------
-        labelSchool = self.labels(self.frameInputsClient.tab(' Informações gerais '), 'Escola:', 0.66, 0.17, width=0.16)
-        self.schoolEntry = self.entry(self.frameInputsClient.tab(' Informações gerais '), 0.74, 0.17, 0.2, 0.13, type_entry='entry')
+        labelSchool = self.labels(self.frameInputsClient.tab(' Informações gerais '), 'Escola:', 0.66, 0.31, width=0.16)
+        self.schoolEntry = self.entry(self.frameInputsClient.tab(' Informações gerais '), 0.74, 0.31, 0.2, 0.13, type_entry='entry')
 
         # plan -----------------
-        labelPlan = self.labels(self.frameInputsClient.tab(' Informações gerais '), 'Plano:', 0.66, 0.31, width=0.16)
-        self.studentPlanEntry = self.entry(self.frameInputsClient.tab(' Informações gerais '), 0.74, 0.31, 0.2, 0.13, type_entry='list')
+        labelPlan = self.labels(self.frameInputsClient.tab(' Informações gerais '), 'Plano:', 0.66, 0.45, width=0.16)
+        self.studentPlanEntry = self.entry(self.frameInputsClient.tab(' Informações gerais '), 0.74, 0.45, 0.2, 0.13, type_entry='list')
 
         # medication use -----------------
         labelMedicationUse = self.labels(self.frameInputsClient.tab(' Saúde do aluno '), 'Usa algum tipo de medicação com prescrição médica?', 0.02, 0.03, width=0.5, size=17)
@@ -568,18 +572,18 @@ class Aplication(
                     entrys.append(widget)
 
             # string var informations ======================
-            entrysGet.insert(15, self.medicationUse[0].get())
-            entrys.insert(15, self.medicationUse[0])
-            entrysGet.insert(17, self.medicationAllergy[0].get())
-            entrys.insert(17, self.medicationAllergy[0])
-            entrysGet.insert(19, self.heartProblem[0].get())
-            entrys.insert(19, self.heartProblem[0])
-            entrysGet.insert(21, self.feelPain[0].get())
-            entrys.insert(21, self.feelPain[0])
-            entrysGet.insert(23, self.bone[0].get())
-            entrys.insert(23, self.bone[0])
-            entrysGet.insert(25, self.otherProblem[0].get())
-            entrys.insert(25, self.otherProblem[0])
+            entrysGet.insert(16, self.medicationUse[0].get())
+            entrys.insert(16, self.medicationUse[0])
+            entrysGet.insert(18, self.medicationAllergy[0].get())
+            entrys.insert(18, self.medicationAllergy[0])
+            entrysGet.insert(20, self.heartProblem[0].get())
+            entrys.insert(20, self.heartProblem[0])
+            entrysGet.insert(22, self.feelPain[0].get())
+            entrys.insert(22, self.feelPain[0])
+            entrysGet.insert(24, self.bone[0].get())
+            entrys.insert(24, self.bone[0])
+            entrysGet.insert(26, self.otherProblem[0].get())
+            entrys.insert(26, self.otherProblem[0])
 
             # directory photo =======================
             entrysGet.append(self.photosAndIcons['costumer'][1].lower())

@@ -64,7 +64,7 @@ class SendMessage:
             pyautogui.click(x=724, y=720, duration=1)
             sleep(1.5)
             # pick plan value =============================
-            price = DataBase('resources/Informações.db').searchDatabase(f'SELECT valor FROM Planos WHERE plano = "{contact[15]}"')[0][0]
+            price = DataBase('resources/Informacoes.db').searchDatabase(f'SELECT valor FROM Planos WHERE plano = "{contact[15]}"')[0][0]
             # writing menssage and sending
             linesMessage = messageForCharge.format(self.pick_saluation(), receiver, datetime.now().strftime('%m/%Y'), contact[15], price).split('\n')
             pyautogui.PAUSE = 0.4

@@ -59,6 +59,7 @@ tableWithInformationsComplementarySchedule = [['', '', '', '', '', '', ''], ['To
 registerStudent = (
     'INSERT INTO Alunos ('
     'nome,'
+    'peso,'
     'cpf_aluno,'
     'rg_aluno,'
     'data_de_nascimento,'
@@ -89,11 +90,12 @@ registerStudent = (
     'foto,'
     'observação'
     ')'
-    'VALUES ("{}", "{}", "{}", "{}", "{}", "{}", "{}", "{}", "{}", "{}", "{}", "{}", "{}", "{}", "{}", "{}", "{}", "{}", "{}", "{}", "{}", "{}", "{}", "{}", "{}", "{}", "{}", "{}", "{}", "{}")'
+    'VALUES ("{}", "{}", "{}", "{}", "{}", "{}", "{}", "{}", "{}", "{}", "{}", "{}", "{}", "{}", "{}", "{}", "{}", "{}", "{}", "{}", "{}", "{}", "{}", "{}", "{}", "{}", "{}", "{}", "{}", "{}", "{}")'
 )
 searchStudent = '''SELECT * 
                   FROM Alunos
                   WHERE {} LIKE "%{}%"
+                  and peso LIKE "%{}%"
                   and cpf_aluno LIKE "%{}%"
                   and rg_aluno LIKE "%{}%"
                   and data_de_nascimento LIKE "%{}%"
@@ -124,6 +126,7 @@ searchStudent = '''SELECT *
 
 updateStudent = '''UPDATE Alunos
                       SET nome = "{}",
+                          peso = "{}",
                           cpf_aluno = "{}",
                           rg_aluno = "{}",
                           data_de_nascimento = "{}",
@@ -156,7 +159,7 @@ updateStudent = '''UPDATE Alunos
                       WHERE ID = {}'''
 
 # tables for client informations =================================
-tableWithInformationsStudentTreeview = [['', '', '', '', '', ''], ['    ID    ', ' Nome ', ' CEP ', '  Cidade  ', ' Estado ', ' Plano ']]
+tableWithInformationsStudentTreeview = [['', '', '', '', '', ''], ['    ID    ', ' Nome ', ' Peso ', ' CEP ', '  Cidade  ', ' Estado ', ' Plano ']]
 tableWithInformationsComplementaryStudent = [['', '', '', '', ''], ['Total de Alunos', 'Maiores de idade', 'Menores de idade', 'Mais velho', 'Mais novo']]
 
 # sql comands for plans informations ==============================

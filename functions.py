@@ -853,10 +853,10 @@ class FunctionsOfSchedule(GeneralFunctions):
 class FunctionsOfStudentInformations(GeneralFunctions):
 
     def register_student(self, informations, treeview):
-        if self.validation(informations[0:28], 5) and self.validation([informations[1], informations[2], informations[3], informations[5], informations[6], informations[7], informations[9]], 7) and self.validation(informations[3], 10):
+        if self.validation(informations[0:29], 5) and self.validation([informations[1], informations[2], informations[3], informations[4], informations[6], informations[7], informations[8], informations[10]], 7) and self.validation(informations[4], 10):
             if self.message_window(4, 'Comfimação', f'Finalisar o cadastro de {informations[0].title()}?'):
                 # analising plan ==============================
-                price = self.dataBases['informations'].searchDatabase(f'SELECT valor FROM Planos WHERE plano = "{informations[14]}"')[0][0]
+                price = self.dataBases['informations'].searchDatabase(f'SELECT valor FROM Planos WHERE plano = "{informations[15]}"')[0][0]
                 price = self.treating_numbers(price, 7)
                 # informations of treeview ====================
                 self.dataBases['informations'].crud(
@@ -865,8 +865,8 @@ class FunctionsOfStudentInformations(GeneralFunctions):
                         informations[1],
                         informations[2],
                         informations[3],
-                        informations[4].title(),
-                        informations[5],
+                        informations[4],
+                        informations[5].title(),
                         informations[6],
                         informations[7],
                         informations[8],
@@ -890,6 +890,7 @@ class FunctionsOfStudentInformations(GeneralFunctions):
                         informations[26],
                         informations[27],
                         informations[28],
+                        informations[29],
                         'Mensalidade em aberto' if price != 0 else "Plano sem custos"
                     )
                 )
@@ -934,7 +935,8 @@ class FunctionsOfStudentInformations(GeneralFunctions):
                 informations[25],
                 informations[26],
                 informations[27],
-                informations[30].replace(' ', '_')
+                informations[28],
+                informations[31].replace(' ', '_')
             )
         # pick up informations =========================================
         informationsDatabase = []
@@ -971,7 +973,8 @@ class FunctionsOfStudentInformations(GeneralFunctions):
                         informations[25],
                         informations[26],
                         informations[27],
-                        informations[30].replace(' ', '_')
+                        informations[28],
+                        informations[31].replace(' ', '_')
                     )
                 )
             case 'last':
@@ -988,11 +991,11 @@ class FunctionsOfStudentInformations(GeneralFunctions):
 
     def update_student(self, treeview, informations, entrys):
         # analising plan ==============================
-        price = self.dataBases['informations'].searchDatabase(f'SELECT valor FROM Planos WHERE plano = "{informations[14]}"')[0][0]
+        price = self.dataBases['informations'].searchDatabase(f'SELECT valor FROM Planos WHERE plano = "{informations[15]}"')[0][0]
         price = self.treating_numbers(price, 7)
         # update informations =========================================
         if treeview.selection():
-            if self.validation(informations[0:28], 5) and self.validation([informations[1], informations[2], informations[3], informations[5], informations[6], informations[7], informations[9]], 7) and self.validation(informations[3], 10):
+            if self.validation(informations[0:29], 5) and self.validation([informations[1], informations[2], informations[3], informations[4], informations[6], informations[7], informations[8], informations[10]], 7) and self.validation(informations[4], 10):
                 informationsDataBase = self.dataBases['informations'].crud(
                     updateStudent.format(
                         informations[0].title(),
@@ -1024,6 +1027,7 @@ class FunctionsOfStudentInformations(GeneralFunctions):
                         informations[26],
                         informations[27],
                         informations[28],
+                        informations[29],
                         'Mensalidade em aberto' if price != 0 else "Plano sem custos",
                         self.selection_treeview(treeview)[0][0]
                     )
@@ -1070,15 +1074,15 @@ class FunctionsOfStudentInformations(GeneralFunctions):
             today = datetime.today().year
             informationsComplementary = [
                 len(informationsTreeview),
-                len([row for row in informationsTreeview if today - datetime.strptime(row[4], '%d/%m/%Y').year >= 18]),
-                len([row for row in informationsTreeview if today - datetime.strptime(row[4], '%d/%m/%Y').year < 18]),
-                max([today - datetime.strptime(row[4], '%d/%m/%Y').year for row in informationsTreeview]),
-                min([today - datetime.strptime(row[4], '%d/%m/%Y').year for row in informationsTreeview]),
+                len([row for row in informationsTreeview if today - datetime.strptime(row[5], '%d/%m/%Y').year >= 18]),
+                len([row for row in informationsTreeview if today - datetime.strptime(row[5], '%d/%m/%Y').year < 18]),
+                max([today - datetime.strptime(row[5], '%d/%m/%Y').year for row in informationsTreeview]),
+                min([today - datetime.strptime(row[5], '%d/%m/%Y').year for row in informationsTreeview]),
             ]
 
             # informations ============================================
             for information in informationsTreeview:
-                tableWithInformationsStudentTreeview.append([information[0], information[1], information[10], information[11], information[12], information[15]])
+                tableWithInformationsStudentTreeview.append([information[0], information[1], information[2], information[11], information[12], information[13], information[16]])
             tableWithInformationsComplementaryStudent.append(informationsComplementary)
 
             # create tables ===========================================
@@ -1104,10 +1108,10 @@ class FunctionsOfStudentInformations(GeneralFunctions):
             today = datetime.today().year
             informationsComplementary = [
                 len(informationsTreeview),
-                len([row for row in informationsTreeview if today - datetime.strptime(row[4], '%d/%m/%Y').year >= 18]),
-                len([row for row in informationsTreeview if today - datetime.strptime(row[4], '%d/%m/%Y').year < 18]),
-                max([today - datetime.strptime(row[4], '%d/%m/%Y').year for row in informationsTreeview]),
-                min([today - datetime.strptime(row[4], '%d/%m/%Y').year for row in informationsTreeview]),
+                len([row for row in informationsTreeview if today - datetime.strptime(row[5], '%d/%m/%Y').year >= 18]),
+                len([row for row in informationsTreeview if today - datetime.strptime(row[5], '%d/%m/%Y').year < 18]),
+                max([today - datetime.strptime(row[5], '%d/%m/%Y').year for row in informationsTreeview]),
+                min([today - datetime.strptime(row[5], '%d/%m/%Y').year for row in informationsTreeview]),
             ]
 
             # shoe menssege ================================================
@@ -1125,8 +1129,8 @@ class FunctionsOfStudentInformations(GeneralFunctions):
 
     def refresh_combobox_student(self):
         # refresh list of combobox services ================================
-        self.customScheduleEntry.configure(values=[name[1] for name in self.search_student(informations=self.searching_list('', 29, 'nome'), save_seacrh=False, insert=False)])
-        self.customSaleEntry.configure(values=[name[1] for name in self.search_student(informations=self.searching_list('', 29, 'nome'), save_seacrh=False, insert=False)])
+        self.customScheduleEntry.configure(values=[name[1] for name in self.search_student(informations=self.searching_list('', 30, 'nome'), save_seacrh=False, insert=False)])
+        self.customSaleEntry.configure(values=[name[1] for name in self.search_student(informations=self.searching_list('', 30, 'nome'), save_seacrh=False, insert=False)])
 
 
 class FunctionsOfCashManagement(GeneralFunctions):
